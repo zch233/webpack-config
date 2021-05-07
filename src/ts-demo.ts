@@ -1,1 +1,1 @@
-export const tsDemo: string = 'typescript'
+export const tsDemo: string = 'typescript';
