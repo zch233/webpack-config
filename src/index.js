@@ -1,6 +1,8 @@
 import {a} from './a.js'
 import { JSXDemo } from './jsx-demo.jsx';
+import {tsDemo} from './ts-demo.ts'
 
+console.log(tsDemo)
 const b = import('./b.js')
 
 const hi = () => {
