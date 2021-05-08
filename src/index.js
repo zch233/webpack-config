@@ -2,6 +2,7 @@ import {a} from '@/a.js'
 import { JSXDemo } from '@/jsx-demo.jsx';
 import {tsDemo} from '@/ts-demo.ts'
 import {TsxDemo} from '@/tsx-demo.tsx'
+import './scss-demo.scss'
 
 console.log(tsDemo)
 console.log(TsxDemo)
