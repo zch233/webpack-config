@@ -30,6 +30,21 @@ module.exports = {
         }
       },
       {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                compileType: 'icss',
+              }
+            },
+          },
+          'less-loader',
+        ]
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           'style-loader',

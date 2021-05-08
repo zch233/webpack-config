@@ -3,6 +3,7 @@ import { JSXDemo } from '@/jsx-demo.jsx';
 import {tsDemo} from '@/ts-demo.ts'
 import {TsxDemo} from '@/tsx-demo.tsx'
 import './scss-demo.scss'
+import './less-demo.less'
 import scssVars from './scss-demo.scss'
 
 console.log(tsDemo)
