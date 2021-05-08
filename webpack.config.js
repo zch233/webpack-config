@@ -87,7 +87,14 @@ module.exports = {
               }
             },
           },
-          'stylus-loader',
+          {
+            loader: 'stylus-loader',
+            options: {
+              stylusOptions: {
+                import: [path.resolve(__dirname, 'src/stylus-vars.styl')]
+              }
+            },
+          }
         ]
       },
     ]
