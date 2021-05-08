@@ -4,10 +4,12 @@ import {tsDemo} from '@/ts-demo.ts'
 import {TsxDemo} from '@/tsx-demo.tsx'
 import './scss-demo.scss'
 import './less-demo.less'
-import scssVars from './scss-demo.scss'
+import scssVars from './scss-export.scss'
+import lessVars from './less-export.less'
 
 console.log(tsDemo)
 console.log(scssVars)
+console.log(lessVars)
 console.log(TsxDemo)
 const b = import('./b.js')
 
