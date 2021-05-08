@@ -1,8 +1,10 @@
 const path = require('path')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const createLoader = (...loaders) => [
-  'style-loader',
+  // 'style-loader',
+  MiniCssExtractPlugin.loader,
   {
     loader: 'css-loader',
     options: {
@@ -19,7 +21,10 @@ module.exports = {
   plugins: [
     new ESLintPlugin({
       extensions: ['.js', '.jsx', '.ts', '.tsx']
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    }),
   ],
   resolve: {
     alias: {
