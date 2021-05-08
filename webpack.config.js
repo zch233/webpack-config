@@ -1,6 +1,19 @@
 const path = require('path')
 const ESLintPlugin = require('eslint-webpack-plugin')
 
+const createLoader = (...loaders) => [
+  'style-loader',
+  {
+    loader: 'css-loader',
+    options: {
+      modules: {
+        compileType: 'icss',
+      }
+    },
+  },
+  ...loaders
+]
+
 module.exports = {
   mode: 'production',
   plugins: [
@@ -31,71 +44,38 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                compileType: 'icss',
-              }
-            },
+        use: createLoader({
+          loader: 'less-loader',
+          options: {
+            additionalData: `@import "~@/less-vars.less";`,
+            lessOptions: {
+              includePaths: [__dirname]
+            }
           },
-          {
-            loader: 'less-loader',
-            options: {
-              additionalData: `@import "~@/less-vars.less";`,
-              lessOptions: {
-                includePaths: [__dirname]
-              }
-            },
-          },
-        ]
+        })
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                compileType: 'icss',
-              },
-            },
+        use: createLoader({
+          loader: 'sass-loader',
+          options: {
+            additionalData: `@import "~@/scss-vars.scss";`,
+            sassOptions: {
+              includePaths: [__dirname]
+            }
           },
-          {
-            loader: 'sass-loader',
-            options: {
-              additionalData: `@import "~@/scss-vars.scss";`,
-              sassOptions: {
-                includePaths: [__dirname]
-              }
-            },
-          },
-        ],
+        })
       },
       {
         test: /\.styl(us)?$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                compileType: 'icss',
-              }
-            },
+        use: createLoader({
+          loader: 'stylus-loader',
+          options: {
+            stylusOptions: {
+              import: [path.resolve(__dirname, 'src/stylus-vars.styl')]
+            }
           },
-          {
-            loader: 'stylus-loader',
-            options: {
-              stylusOptions: {
-                import: [path.resolve(__dirname, 'src/stylus-vars.styl')]
-              }
-            },
-          }
-        ]
+        })
       },
     ]
   }
