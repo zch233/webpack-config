@@ -1,4 +1,5 @@
-$color: blue;
+@import "~@/scss-vars.scss";
+
 body {
   p {
     color: $color;
