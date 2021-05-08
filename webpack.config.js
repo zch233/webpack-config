@@ -41,7 +41,15 @@ module.exports = {
               }
             },
           },
-          'less-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              additionalData: `@import "~@/less-vars.less";`,
+              lessOptions: {
+                includePaths: [__dirname]
+              }
+            },
+          },
         ]
       },
       {
