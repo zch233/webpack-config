@@ -74,7 +74,22 @@ module.exports = {
             },
           },
         ],
-      }
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                compileType: 'icss',
+              }
+            },
+          },
+          'stylus-loader',
+        ]
+      },
     ]
   }
 }

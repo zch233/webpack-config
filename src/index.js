@@ -4,6 +4,7 @@ import {tsDemo} from '@/ts-demo.ts'
 import {TsxDemo} from '@/tsx-demo.tsx'
 import './scss-demo.scss'
 import './less-demo.less'
+import './stylus-demo.styl'
 import scssVars from './scss-export.scss'
 import lessVars from './less-export.less'
 
