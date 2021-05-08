@@ -56,7 +56,14 @@ module.exports = {
           chunks: 'all', // all 表示同步加载和异步加载，async 表示异步加载，initial 表示同步加载
           // 这三行的整体意思就是把两种加载方式的来自 node_modules 目录的文件大包围 vendors.xxx.js
           // 其中 vendors 是第三方的意思（行业默认，显得专业）
-        }
+        },
+        common: {
+          // priority: 5,
+          minSize: 0,
+          minChunks: 2,
+          chunks: 'all',
+          name: 'common',
+        },
       },
     }
   },

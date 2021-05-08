@@ -7,7 +7,9 @@ import './less-demo.less'
 import './stylus-demo.styl'
 import scssVars from './scss-export.scss'
 import lessVars from './less-export.less'
+import {share} from './share.js';
 
+console.log(share)
 console.log(tsDemo)
 console.log(scssVars)
 console.log(lessVars)
