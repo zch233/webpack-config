@@ -1,10 +1,13 @@
 const path = require('path')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const mode = 'production'
 const createLoader = (...loaders) => [
-  // 'style-loader',
-  MiniCssExtractPlugin.loader,
+  mode === 'production' ?
+    MiniCssExtractPlugin.loader:
+    'style-loader',
   {
     loader: 'css-loader',
     options: {
@@ -17,15 +20,16 @@ const createLoader = (...loaders) => [
 ]
 
 module.exports = {
-  mode: 'production',
+  mode,
   plugins: [
     new ESLintPlugin({
       extensions: ['.js', '.jsx', '.ts', '.tsx']
     }),
-    new MiniCssExtractPlugin({
+    mode === 'production' && new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
     }),
-  ],
+    new HtmlWebpackPlugin()
+  ].filter(Boolean),
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src/')
