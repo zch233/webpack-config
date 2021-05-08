@@ -30,6 +30,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin()
   ].filter(Boolean),
+  output: {
+    filename: '[name].[contenthash].js'
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src/')
